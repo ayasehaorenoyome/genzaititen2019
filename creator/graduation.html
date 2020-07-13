@@ -1,0 +1,110 @@
+<section id="creator_intro" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+    <div class="inner">
+        <h3>卒業制作とは</h3>
+        <p>私たちはこの２年間で様々なものに触れ、感じ、共に成長してきました。</p>
+        <p>その様々な経験の成果がこの「卒業制作」です。</p>
+        <p>これから別々の道へと進む仲間たちとの集大成。</p>
+        <p>みんなで辿り着いた「現在地展」を是非ご覧ください。</p>
+    </div>
+</section>
+<section id="graduation_map" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+    <div class="inner">
+        <h2>FLOOR MAP<br><span>フロアマップ</span></h2>
+        <div class="map_container">
+            <div class="map_header">
+                <a href="#" class="map_btn map_active" id="tab_btn_entrance">エントランス</a>
+                <a href="#" class="map_btn" id="tab_btn_foyer">ホワイエ</a>
+                <a href="#" class="map_btn" id="tab_btn_domehall">ドームホール</a>
+            </div>
+            <div class="map_content"><img src="../img/contents/img_map_entrance_graduation.jpg" alt="フロアマップ"></div>
+        </div>
+    </div>
+
+</section>
+<section id="graduation_work">
+    <div class="inner">
+        <h3>卒業制作一覧</h3>
+
+        <!--エントランス-->
+        <ul id="entrance" class="graduation_wrap">
+            
+        </ul>
+        <!--ホワイエ-->
+        <ul id="foyer" class="graduation_wrap">
+            
+        </ul>
+        <!--ドームホール-->
+        <ul id="domehall" class="graduation_wrap">
+          
+        </ul>
+        <div id="modal">
+            <div id="modal_outer">
+                <div id="modal_content">
+                    <div id="modal_inner">
+                        <div id="modal_img"><img src="#" alt="ビジュアル"></div>
+                        <ul id="content_wrap">
+                            <li id="content_l">
+                                <p id="modal_name">creator : </p>
+                            </li>
+                            <li id="content_r">
+                            </li>
+                        </ul>
+                        <a href="#" class="close"><i class="fas fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+function mapSelect(){
+    if ($('#creator').length ){
+    $('#entrance').load('graduation_entrance.html');
+  }else{}
+  $('#tab_btn_entrance').on('click',function(){
+    $('.map_content > img').attr('src','../img/contents/img_map_entrance_graduation.jpg');
+    $('.map_btn').removeClass('map_active');
+    $(this).addClass('map_active');
+    $('#entrance').load('graduation_entrance.html');
+    $('#entrance').css('display','flex');
+    $('#foyer').css('display','none');
+    $('#domehall').css('display','none');
+    return false;
+  })
+
+  $('#tab_btn_foyer').on('click',function(){
+    $('.map_content > img').attr('src','../img/contents/img_map_foyer.jpg');
+    $('.map_btn').removeClass('map_active');
+    $('#foyer').load('graduation_foyer.html');
+    $(this).addClass('map_active');
+    $('#foyer').css('display','flex');
+    $('#entrance').css('display','none');
+    $('#domehall').css('display','none');
+    return false;
+  })
+
+  $('#tab_btn_domehall').on('click',function(){
+    $('.map_content > img').attr('src','../img/contents/img_map_domehall.jpg');
+    $('.map_btn').removeClass('map_active');
+    $('#domehall').load('graduation_domehall.html');
+    $(this).addClass('map_active');
+    $('#domehall').css('display','flex');
+    $('#foyer').css('display','none');
+    $('#entrance').css('display','none');
+    return false;
+  })
+}
+mapSelect();
+
+
+//スロールアニメーション
+function scrollEffect(){
+  AOS.init({
+    disable: window.innerWidth < 768
+  });
+}
+scrollEffect();
+
+</script>

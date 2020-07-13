@@ -1,0 +1,52 @@
+<div class="inner">
+    <a href="#" class="top_btn"></a>
+    <div class="cloud_dummy"></div>
+    <p class="copylight">Copyright © Kobe Institute of Computing - College of Computing</p>
+</div>
+<script>
+
+var t3d = 30;
+
+$(window).on('load',function(){ 
+  if (url == "https://222mash.ga/3d/imdex.html" ){
+    // URLが http://example.com/ の場合に実行する内容
+    for(i=0; i<t3d ;i++){
+      $('#wrap').append('<img class="balloons" src="../img/common/img_footer_btn_balloon_3d.png">');}
+  }else{
+    for(i=0; i<t3d ;i++){
+      $('#wrap').append('<img class="balloons" src="../../img/common/img_footer_btn_balloon_3d.png">');}
+  }
+});
+
+// #で始まるアンカーをクリックした場合に処理
+$('.top_btn').click(function(i) {
+  // スクロールの速度
+  var speed = 1800; // ミリ秒
+  var bSpeed =3000;
+  // アンカーの値取得
+  var href= $(this).attr("href");
+  // 移動先を取得
+  var target = $(href == "#" || href == "" ? 'html' : href);
+  // 移動先を数値で取得
+  var position = target.offset().top;
+  //バールン上までね????
+
+   var balloons = $('.balloons');
+  // console.log(balloons);
+  // スムーススクロール
+  //$('body,html').animate({scrollTop:position}, speed, 'swing');
+  $('body,html').animate({scrollTop:position}, speed, 'swing',function(){
+    balloons.css('display','block');
+    balloons.animate({
+      top : '-100%'
+    },bSpeed, 'swing',function(){
+      balloons.css('display','none')
+      balloons.css('top','');
+    });
+    return false;
+  }); 
+});
+$('a[href^="#"]').dblclick(function(){
+  return false;
+});
+</script>

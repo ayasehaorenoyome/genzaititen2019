@@ -1,0 +1,77 @@
+<li href="../../img/common/img_graduation_product_01.png" class="graduation_member" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+  <img src="../../img/common/img_graduation_product_01.png" alt="梅澤 快斗">
+  <h5 class="graduation_title"><span class="label camera">2-1</span>J.A.R.V.I.S.</h5>
+  <p id="g-name">梅澤 快斗</p>
+</li>
+<li href="../../img/common/img_graduation_product_02.png" class="graduation_member" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+  <img src="../../img/common/img_graduation_product_02.png" alt="大上 智広">
+  <h5 class="graduation_title"><span class="label reading">2-2</span>小説投稿サイト</h5>
+  <p id="g-name">大上 智広</p>
+</li>
+<li  href="../../img/common/img_graduation_product_07.png" class="graduation_member" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+  <img src="../../img/common/img_graduation_product_07.png" alt="濱口 雄成">
+  <h5 class="graduation_title"><span class="label reading">2-1</span>メイゲンショボウ</h5>
+  <p id="g-name">濱口 雄成</p>
+</li>
+<li href="../../img/common/img_graduation_product_10.png" class="graduation_member" data-aos="zoom-out-down" data-aos-duration="500" data-aos-once="true">
+  <img src="../../img/common/img_graduation_product_10.png" alt="増田 元気">
+  <h5 class="graduation_title"><span class="label photo">2-1</span>imaGING</h5>
+  <p id="g-name">増田 元気</p>
+</li>
+
+<script>
+var productList = [
+  { namae: '梅澤 快斗', area: 'カメラエリア 2-1', title: 'J.A.R.V.I.S.', txt: '無謀な挑戦' ,img: '../../img/contents/img_creator_01_01.png' },
+  { namae: '大上 智広', area: '読書エリア 2-2', title: '投稿小説サイト', txt: '小説執筆とそのwebサイトの作成' ,img: '../../img/contents/img_creator_01_02.png' },
+  { namae: '濱口 雄成', area: '読書エリア 2-1', title: 'メイゲンショボウ' , txt: 'セリフで選ぶ漫画専門書店' , img: '../../img/contents/img_creator_01_07.png'},
+  { namae: '増田 元気', area: '写真エリア 2-1', title: '写真展「imaGING」' , txt: '現在地展内での写真展の開催。それにともなう販促物やwebサイト、ポストカードやフォトブックの作成をします。' , img: '../../img/contents/img_creator_01_10.png'}
+];
+function modalWindow(){
+$('.graduation_member').on('click',function(){
+  var imgUrl = $(this).attr('href');
+  current_scrollY = $( window ).scrollTop(); 
+  $('#creator').addClass('scroll_prevent');
+  $('.scroll_prevent').css({
+    'top': -1 * current_scrollY
+  });
+  $('#modal').css('display','block');
+  $('#modal_img > img').attr('src',imgUrl);
+  $('.modal > img').attr( 'src',$(this).attr('href') );
+
+  for(i=0;i<=productList.length;i++){
+    var imgAlt = $(this).children('img').attr('alt');
+     var spanName = '<span>'+productList[i].namae+'</span>';
+     var modalArea = '<p id="modal_area">'+productList[i].area+'</p>';
+     var modalTitle = '<p id="modal_title">'+productList[i].title+'</p>';
+     var modalText = '<p id="modal_txt">'+productList[i].txt+'</p>';
+     var modalImg = '<img src="'+productList[i].img+'">';
+     if(imgAlt == productList[i].namae){
+       $('#modal_name').append(spanName);
+       $('#content_l').append(modalArea);
+       $('#content_l').append(modalTitle);
+       $('#content_l').append(modalText);
+       $('#content_r').append(modalImg);
+     } else{}
+  }
+
+  return false;
+})
+$('.close').on('click',function(){
+  $('#creator').removeClass('scroll_prevent');
+  $( 'html, body' ).prop( 'scrollTop', current_scrollY );
+  $('#modal').css('display','none');
+  $('#modal_name').children('span').remove();
+  $('#modal_area,#modal_title,#modal_txt,#content_r img').remove();
+  return false;
+})
+}
+modalWindow();
+
+//スロールアニメーション
+function scrollEffect(){
+AOS.init({
+  disable: window.innerWidth < 768
+});
+}
+scrollEffect();
+</script>

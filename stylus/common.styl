@@ -1,0 +1,537 @@
+@charset "UTF-8";
+/* CSS Document */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing border-box
+}
+/* HTML5 dsplay-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html
+  width 100%
+
+a {
+  text-decoration: none;
+}
+img {
+  width 100%
+  height auto
+}
+p {
+  color #171e1e
+}
+
+@keyframes flag 
+	0% 
+		top -10px 
+		opacity 0
+	30% 
+		top -10px
+	100% 
+		top 15%
+		opacity 1
+
+@keyframes balloon 
+	0% 
+		top -10px
+	50%
+		top 10px
+	100%
+		top -10px
+
+@keyframes huwahuwa 
+	0% 
+		top -10px
+	50%
+		top 10px
+	100%
+		top -10px
+
+
+
+
+.scroll_prevent
+  position fixed
+  z-index -1
+  width 100%
+  height 100%
+
+.balloons
+  width 8%
+  position absolute
+  display none
+  z-index 9999
+  +MQ(SP_RES_WID)
+    width 15%
+  &:nth-of-type(1)
+    top 240%
+    left 2%
+  &:nth-of-type(2)
+    top 250%
+    left 8%	
+  &:nth-of-type(3)
+    top 250%
+    left 79%
+  &:nth-of-type(4)
+    top 130%
+    left 12%
+  &:nth-of-type(5)
+    top 170%
+    left 22%
+  &:nth-of-type(6)
+    top 250%
+    left 26%
+  &:nth-of-type(7)
+    top 170%
+    left 70%
+  &:nth-of-type(8)
+    top 130%
+    left 38%
+  &:nth-of-type(9)
+    top 230%
+    left 42%
+  &:nth-of-type(10)
+    top 120%
+    left 50%
+  &:nth-of-type(11)
+    top 350%
+    left 56%
+  &:nth-of-type(12)
+    top 160%
+    left 57%
+  &:nth-of-type(13)
+    top 140%
+    left 55%
+  &:nth-of-type(14)
+    top 300%
+    left 65%
+  &:nth-of-type(15)
+    top 200%
+    left 61%
+  &:nth-of-type(16)
+    top 290%
+    left 73%
+  &:nth-of-type(17)
+    top 150%
+    left 78%
+  &:nth-of-type(18)
+    top 280%
+    left 80%
+  &:nth-of-type(19)
+    top 330%
+    left 0%
+  &:nth-of-type(20)
+    top 220%
+    left 22%
+  &:nth-of-type(21)
+    top 215%
+    left 32%
+  &:nth-of-type(22)
+    top 300%
+    left 72%
+  &:nth-of-type(23)
+    top 260%
+    left 30%
+  &:nth-of-type(24)
+    top 110%
+    left 1%
+  &:nth-of-type(25)
+    top 200%
+    left 4%
+  &:nth-of-type(26)
+    top 240%
+    left 83%
+  &:nth-of-type(27)
+    top 160%
+    left 27%
+  &:nth-of-type(28)
+    top 190%
+    left 33%
+  &:nth-of-type(29)
+    top 160%
+    left 52%
+  &:nth-of-type(30)
+    top 270%
+    left 0%
+
+.inview
+  opacity 0
+  transform transition(1.5)
+
+
+  
+
+#wrap
+  overflow hidden
+
+section
+  max-width 1200px
+  width 80vw
+  &#footer
+    position relative
+    min-width 100vw
+    min-height 200px
+    max-height 400px
+    width 100vh
+    height 50vw
+    +MQ(SP_RES_WID)
+      margin 0
+      height 35vw
+    +MQ(450px)
+      height 40vw
+    .inner
+      .top_btn
+        display block
+        width 257px
+        height 203px
+        position absolute
+        bottom 100px
+        right 5vw
+        background url(../img/common/img_footer_btn.png)no-repeat
+        background-size contain
+        +MQ(876px)
+          right 0
+        +MQ(SP_RES_WID)
+          right -1vw
+          width 30vw
+          height 24vw
+          bottom 60px
+        +MQ(450px)
+          bottom 90px
+        &:after
+          content ''
+          max-width 131px
+          max-height 226px
+          width 15vw
+          height 26vw
+          background url(../img/common/img_footer_btn_balloon.png)no-repeat
+          background-size contain
+          background-position center bottom
+          position absolute
+          top 0
+          right 2.5vw
+          animation balloon 3s ease infinite
+      .cloud_dummy
+        position absolute
+        width 244px
+        height 198px
+        bottom 130px
+        left 0
+        background url(../img/common/img_footer_cloud.png)no-repeat center
+        background-size contain
+        +MQ(SP_RES_WID)
+          width 25vw
+          height 20vw
+          bottom 60px
+        +MQ(450px)
+          bottom 90px
+      .copylight
+        padding 50px 0
+        width 100%
+        text-align center
+        position absolute
+        bottom 0
+        background #179a99
+        font-family 'Walter Turncoat', cursive!important
+        color #fff
+        +MQ(SP_RES_WID)
+          padding 25px 0
+          fontSize(10)
+
+#about,#creator
+    
+	#wrap
+        background:repeating-linear-gradient(90deg, #f1f9f9 0, #f1f9f9 20px, #fff 20px, #fff 40px)
+        #header
+            position fixed
+            top 0
+        section
+            .inner
+                p
+                    font-family 'Noto Sans JP', sans-serif
+                    fontSize(16)
+                    line-height 2.5em
+                    letter-spacing 0.04em
+                    +MQ(SP_RES_WID)
+                        align-self flex-start
+                        fontSize(14)
+                        line-height 2em
+            &#under_mv
+                flexBox()
+                margin-top 0
+                justify-content space-around
+                align-items center
+                max-width 100vw
+                width 100vw
+                height 70vh
+                position relative
+                background url(../img/common/img_mv.jpg)
+                background-size cover
+                background-attachment fixed
+                background-repeat no-repeat
+                background-position center center
+                overflow hidden
+                +MQ(SP_RES_WID)
+                  width 100vw
+                  min-height 0
+                  height 60vw
+                  background-attachment scroll
+                  background-size 140%
+				          background-position 30% 50%
+                  overflow visible
+                .under_title
+                  max-width 850px
+                  max-height 320px
+                  width 80vw
+                  height auto
+                  filter drop-shadow(15px 15px 20px rgba(65,65,65,0.2))
+                  +MQ(SP_RES_WID)
+                    width 90vw
+											
+.header_dummy
+  width 100%
+  height 123px
+  background #ffffff
+  +MQ(SP_RES_WID)
+    height 78px
+
+        
+
+#header
+  flexBox()
+  justify-content space-around
+  width 100%
+  height 123px
+  border-bottom 1px solid #179a99
+  background url(../img/common/img_header_dotted.png)repeat-X,#fff
+  z-index 999!important
+  +MQ(SP_RES_WID)
+    position fixed
+    top 0
+    border-bottom 1px solid #179a99
+    background-size auto 8px
+    height 78px
+  .header_inner
+    margin-top 23px
+    height 100px
+    width 80vw
+    flexBox()
+    justify-content space-between
+    align-items center
+    +MQ(SP_RES_WID)
+      width 90vw
+      margin-top 8px
+      height 70px
+    h1
+      a
+        display inline-block
+        width 120px
+        height 83px
+        +MQ(SP_RES_WID)
+          height calc(70px - 10px*2)
+          width auto
+        img
+          width auto
+          height 100%
+    #nav_btn
+      display none
+      +MQ(SP_RES_WID)
+        display inline-block
+        height calc(70px - 10px*2)
+        width 60px
+        height 50px
+      img
+        width auto
+        height 100%
+      span
+        display none
+        text-align center
+        color #179a99
+        fontSize(50)
+
+    .nav_wrap
+      +MQ(SP_RES_WID)
+        display none
+        position fixed
+        top 78px
+        left 0
+        width 100vw
+        height calc(100vh - 78px)
+        background url(../img/common/img_header_nav_logo.png)no-repeat,url(../img/common/img_header_dotted.png)repeat-X,#fff
+        background-position center bottom 15px , center bottom
+        background-size 25vh auto, auto 8px
+      .nav_inner
+        +MQ(SP_RES_WID)
+          width 90vw
+          height 60vh
+          margin 20px auto 0
+          flex-direction column
+          padding 7px
+          background #fff
+          border 2px solid #179a99
+          border-radius 20px
+        #g-nav
+          width 520px
+          flexBox()
+          justify-content space-between
+          align-items center
+          +MQ(850px)
+            width 60vw
+          +MQ(SP_RES_WID)
+            padding 3vh 0
+            max-width 100%
+            max-height 100%
+            width 100%
+            height 100%
+            flexBox()
+            flex-direction column
+            justify-content space-around
+            border 1px dashed #179a99
+            border-radius 15px
+              
+        li
+          font-family pilar-pro, sans-serif
+          font-weight 400
+          font-style normal
+          fontSize(26)
+          line-height 75%
+          text-align center
+          +MQ(SP_RES_WID)
+            text-align left
+            line-height 120%
+          @media screen and (max-height: 600px)
+            line-height 100%
+          
+          &.sns
+            ul
+              display flex
+              justify-content space-between
+              width 120px
+              +MQ(SP_RES_WID)
+                min-width 180px
+                width 30vw
+              @media screen and (max-height: 600px)
+                min-width 150px
+              li
+                background #179a99
+                border-radius 50%
+                width 35px
+                height 35px
+                transition .15s ease-in-out
+                +MQ(SP_RES_WID)
+                  width 45px
+                  height 45px
+                +MQ(500px)
+                  width 6.5vh
+                  height 6.5vh
+                &:hover
+                  background #ffe225
+                  a
+                    color #fff
+                &:last-child
+                  img
+                    transform scale(0.7)
+                    +MQ(SP_RES_WID)
+                      transform scale(0.7)
+                a
+                  width 100%
+                  height 100%
+                  fontSize(18)
+                  color #fff;
+                  flexBox()
+                  justify-content space-around
+                  align-items center
+                  +MQ(500px)
+                    font-size 4vh
+          a
+            color #179a99
+            transition .15s ease-in-out
+            &.flag
+              +MQ(SP_RES_WID)
+                position relative
+                display inline-block
+                padding-left 20px
+                width 200px
+                font-size 6vh
+                &:after
+                  content ''
+                  display inline-block
+                  width 25px
+                  height 28px
+                  position absolute
+                  top 15%
+                  left -20px
+                  background url(../img/common/img_header_flag_active.png)no-repeat
+                span
+                  +MQ(SP_RES_WID)
+                    font-size 1.8vh
+              &.active
+                position relative
+                color #ffe225
+                +MQ(SP_RES_WID)
+                  color #179a99
+                  &:hover
+                    color #ffe225
+                &:after
+                    content ''
+                    position absolute
+                    top 15%
+                    left -35px
+                    width 25px
+                    height 28px
+                    background url(../img/common/img_header_flag_active.png) no-repeat
+                    +MQ(SP_RES_WID)
+                      display block
+                      left -20px
+            &:hover
+              color #ffe225
+              &.flag
+                position relative
+                &:before
+                  content ''
+                  position absolute
+                  top 15%
+                  left -35px
+                  width 25px
+                  height 28px
+                  background url(../img/common/img_header_flag_active.png) no-repeat
+                  animation flag .5s ease
+                  +MQ(SP_RES_WID)
+                    display none
+                &.active
+                    &:before
+                      display none
+
+
+            span
+              font-family 'Noto Sans JP', sans-serif
+              fontSize(12)
+  
